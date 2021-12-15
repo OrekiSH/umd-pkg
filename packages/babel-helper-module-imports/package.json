@@ -1,0 +1,45 @@
+{
+  "name": "@umd-pkg/babel-helper-module-imports",
+  "version": "7.16.0",
+  "description": "Babel helper functions for inserting module loads",
+  "author": "OrekiSH <orekish@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm-run-all --parallel build:*",
+    "build:cjs_d": "tsc -d --emitDeclarationOnly",
+    "build:es_d": "tsc -p ./tsconfig.es.json -d --emitDeclarationOnly",
+    "build:es": "rollup -c=./build/rollup.esm.js",
+    "build:cjs": "rollup -c=./build/rollup.cjs.js",
+    "build:umd": "rollup -c=./build/rollup.umd.js",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OrekiSH/umd-pkg.git",
+    "directory": "packages/babel-helper-module-imports"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "unpkg": "dist/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "src",
+    "lib",
+    "dist",
+    "es"
+  ],
+  "dependencies": {
+    "@babel/types": "^7.16.0",
+    "assert": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/traverse": "^7.16.0"
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  }
+}

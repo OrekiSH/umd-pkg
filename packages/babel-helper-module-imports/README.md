@@ -1,8 +1,4 @@
-# umd-pkg
-
-Harmony packages for umd/iife format
-
-## @umd-pkg/babel-helper-module-imports
+# @umd-pkg/babel-helper-module-imports
 
 > Babel helper functions for inserting module loads
 
@@ -18,4 +14,24 @@ addSideEffect(path, 'source');
 // after
 import { addSideEffect } from "@umd-pkg/babel-helper-module-imports";
 addSideEffect(path, 'source', t); // add `types`
+```
+
+## Install
+
+Using npm:
+
+```sh
+npm install --save @umd-pkg/babel-helper-module-imports
+```
+
+or using yarn:
+
+```sh
+yarn add @umd-pkg/babel-helper-module-imports
+```
+
+or using pnpm:
+
+```sh
+pnpm add @umd-pkg/babel-helper-module-imports
 ```

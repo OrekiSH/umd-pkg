@@ -1,0 +1,31 @@
+{
+  "name": "umd-pkg",
+  "version": "1.0.0",
+  "description": "Harmony packages for umd/iife format",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrekiSH/umd-pkg.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OrekiSH/umd-pkg/issues"
+  },
+  "homepage": "https://github.com/OrekiSH/umd-pkg#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.1",
+    "@types/babel__traverse": "^7.14.2",
+    "esbuild": "^0.14.5",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.61.1",
+    "rollup-plugin-esbuild": "^4.7.2",
+    "rollup-plugin-polyfill-node": "^0.8.0",
+    "typescript": "^4.5.4"
+  }
+}
