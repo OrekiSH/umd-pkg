@@ -11,7 +11,7 @@
     "build:es": "rollup -c=./build/rollup.esm.js",
     "build:cjs": "rollup -c=./build/rollup.cjs.js",
     "build:umd": "rollup -c=./build/rollup.umd.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm build"
   },
   "publishConfig": {
     "access": "public"

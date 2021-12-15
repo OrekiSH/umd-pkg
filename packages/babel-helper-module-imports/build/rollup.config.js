@@ -12,7 +12,7 @@ function defineBundleConfig(format, minify = false) {
   if (format === 'esm') file = './es/index.js';
 
   return defineConfig({
-    input: './src/foo.ts',
+    input: './src/index.ts',
     output: {
       file,
       format,
