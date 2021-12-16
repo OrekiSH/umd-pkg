@@ -3,7 +3,6 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const esbuild = require('rollup-plugin-esbuild').default;
 const json = require('@rollup/plugin-json');
-const replace = require('@rollup/plugin-replace');
 
 function defineBundleConfig(format, minify = false) {
   let file = `./dist/index${minify ? '.min' : ''}.js`;
@@ -15,22 +14,17 @@ function defineBundleConfig(format, minify = false) {
     output: {
       file,
       format,
-      name: '@babel/helper-module-imports',
+      name: '@vue/babel-plugin-jsx',
     },
     plugins: [
-      nodeResolve({
-        preferBuiltins: false,
-      }),
       commonjs(),
+      nodeResolve(),
       esbuild({
         minify,
         jsx: 'preserve',
         jsxFactory: 'h',
       }),
       json(),
-      replace({
-        'process.env.NODE_DEBUG': JSON.stringify(false),
-      }),
     ],
   });
 }

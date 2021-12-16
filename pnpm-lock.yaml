@@ -7,23 +7,25 @@ importers:
       '@rollup/plugin-commonjs': ^21.0.1
       '@rollup/plugin-json': ^4.1.0
       '@rollup/plugin-node-resolve': ^13.1.1
+      '@rollup/plugin-replace': ^3.0.0
+      '@types/babel__core': ^7.1.17
       '@types/babel__traverse': ^7.14.2
       esbuild: ^0.14.5
       npm-run-all: ^4.1.5
       rollup: ^2.61.1
       rollup-plugin-esbuild: ^4.7.2
-      rollup-plugin-polyfill-node: ^0.8.0
       typescript: ^4.5.4
     devDependencies:
       '@rollup/plugin-commonjs': 21.0.1_rollup@2.61.1
       '@rollup/plugin-json': 4.1.0_rollup@2.61.1
       '@rollup/plugin-node-resolve': 13.1.1_rollup@2.61.1
+      '@rollup/plugin-replace': 3.0.0_rollup@2.61.1
+      '@types/babel__core': 7.1.17
       '@types/babel__traverse': 7.14.2
       esbuild: 0.14.5
       npm-run-all: 4.1.5
       rollup: 2.61.1
       rollup-plugin-esbuild: 4.7.2_esbuild@0.14.5+rollup@2.61.1
-      rollup-plugin-polyfill-node: 0.8.0_rollup@2.61.1
       typescript: 4.5.4
 
   packages/babel-helper-module-imports:
@@ -38,6 +40,21 @@ importers:
     devDependencies:
       '@babel/core': 7.16.5
       '@babel/traverse': 7.16.5
+
+  packages/vue-babel-plugin-jsx:
+    specifiers:
+      '@babel/plugin-syntax-jsx': ^7.16.5
+      '@babel/template': ^7.16.0
+      '@umd-pkg/babel-helper-module-imports': workspace:^7.16.0-beta.0
+      html-tags: ^3.1.0
+      svg-tags: ^1.0.0
+    dependencies:
+      '@babel/plugin-syntax-jsx': 7.16.5
+      '@umd-pkg/babel-helper-module-imports': link:../babel-helper-module-imports
+      html-tags: 3.1.0
+      svg-tags: 1.0.0
+    devDependencies:
+      '@babel/template': 7.16.0
 
 packages:
 
@@ -151,6 +168,11 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/helper-plugin-utils/7.16.5:
+    resolution: {integrity: sha512-59KHWHXxVA9K4HNF4sbHCf+eJeFe0Te/ZFGqBT4OjXhrwvA04sGfaEGsVTdsjoszq0YTP49RC9UKe5g8uN2RwQ==}
+    engines: {node: '>=6.9.0'}
+    dev: false
+
   /@babel/helper-simple-access/7.16.0:
     resolution: {integrity: sha512-o1rjBT/gppAqKsYfUdfHq5Rk03lMQrkPHG1OWzHWpLgVXRH4HnMM9Et9CVdIqwkCQlobnGHEJMsgWP/jE1zUiw==}
     engines: {node: '>=6.9.0'}
@@ -199,6 +221,15 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dev: true
+
+  /@babel/plugin-syntax-jsx/7.16.5:
+    resolution: {integrity: sha512-42OGssv9NPk4QHKVgIHlzeLgPOW5rGgfV5jzG90AhcXXIv6hu/eqj63w4VgvRxdvZY3AlYeDgPiSJ3BqAd1Y6Q==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/helper-plugin-utils': 7.16.5
+    dev: false
 
   /@babel/template/7.16.0:
     resolution: {integrity: sha512-MnZdpFD/ZdYhXwiunMqqgyZyucaYsbL0IrjoGjaVhGilz+x8YB++kRfygSOIj1yOtWKPlx7NBp+9I1RQSgsd5A==}
@@ -250,17 +281,6 @@ packages:
       rollup: 2.61.1
     dev: true
 
-  /@rollup/plugin-inject/4.0.3_rollup@2.61.1:
-    resolution: {integrity: sha512-lzMXmj0LZjd67MI+M8H9dk/oCxR0TYqYAdZ6ZOejWQLSUtud+FUPu4NCMAO8KyWWAalFo8ean7yFHCMvCNsCZw==}
-    peerDependencies:
-      rollup: ^1.20.0 || ^2.0.0
-    dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.61.1
-      estree-walker: 2.0.2
-      magic-string: 0.25.7
-      rollup: 2.61.1
-    dev: true
-
   /@rollup/plugin-json/4.1.0_rollup@2.61.1:
     resolution: {integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==}
     peerDependencies:
@@ -285,6 +305,16 @@ packages:
       rollup: 2.61.1
     dev: true
 
+  /@rollup/plugin-replace/3.0.0_rollup@2.61.1:
+    resolution: {integrity: sha512-3c7JCbMuYXM4PbPWT4+m/4Y6U60SgsnDT/cCyAyUKwFHg7pTSfsSQzIpETha3a3ig6OdOKzZz87D9ZXIK3qsDg==}
+    peerDependencies:
+      rollup: ^1.20.0 || ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0_rollup@2.61.1
+      magic-string: 0.25.7
+      rollup: 2.61.1
+    dev: true
+
   /@rollup/pluginutils/3.1.0_rollup@2.61.1:
     resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
     engines: {node: '>= 8.0.0'}
@@ -303,6 +333,29 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.0
+    dev: true
+
+  /@types/babel__core/7.1.17:
+    resolution: {integrity: sha512-6zzkezS9QEIL8yCBvXWxPTJPNuMeECJVxSOhxNY/jfq9LxOTHivaYTqr37n9LknWWRTIkzqH2UilS5QFvfa90A==}
+    dependencies:
+      '@babel/parser': 7.16.6
+      '@babel/types': 7.16.0
+      '@types/babel__generator': 7.6.3
+      '@types/babel__template': 7.4.1
+      '@types/babel__traverse': 7.14.2
+    dev: true
+
+  /@types/babel__generator/7.6.3:
+    resolution: {integrity: sha512-/GWCmzJWqV7diQW54smJZzWbSFf4QYtF71WCKhcx6Ru/tFyQIY2eiiITcCAeuPbNSvT9YCGkVMqqvSk2Z0mXiA==}
+    dependencies:
+      '@babel/types': 7.16.0
+    dev: true
+
+  /@types/babel__template/7.4.1:
+    resolution: {integrity: sha512-azBFKemX6kMg5Io+/rdGT0dkGreboUVR0Cdm3fz9QJWpaQGJRQXl7C+6hOTCZcMll7KFyEQpgbYI2lHdsS4U7g==}
+    dependencies:
+      '@babel/parser': 7.16.6
+      '@babel/types': 7.16.0
     dev: true
 
   /@types/babel__traverse/7.14.2:
@@ -766,6 +819,11 @@ packages:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: true
 
+  /html-tags/3.1.0:
+    resolution: {integrity: sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==}
+    engines: {node: '>=8'}
+    dev: false
+
   /inflight/1.0.6:
     resolution: {integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=}
     dependencies:
@@ -1109,15 +1167,6 @@ packages:
       rollup: 2.61.1
     dev: true
 
-  /rollup-plugin-polyfill-node/0.8.0_rollup@2.61.1:
-    resolution: {integrity: sha512-C4UeKedOmOBkB3FgR+z/v9kzRwV1Q/H8xWs1u1+CNe4XOV6hINfOrcO+TredKxYvopCmr+WKUSNsFUnD1RLHgQ==}
-    peerDependencies:
-      rollup: ^1.20.0 || ^2.0.0
-    dependencies:
-      '@rollup/plugin-inject': 4.0.3_rollup@2.61.1
-      rollup: 2.61.1
-    dev: true
-
   /rollup/2.61.1:
     resolution: {integrity: sha512-BbTXlEvB8d+XFbK/7E5doIcRtxWPRiqr0eb5vQ0+2paMM04Ye4PZY5nHOQef2ix24l/L0SpLd5hwcH15QHPdvA==}
     engines: {node: '>=10.0.0'}
@@ -1225,6 +1274,10 @@ packages:
     dependencies:
       has-flag: 3.0.0
     dev: true
+
+  /svg-tags/1.0.0:
+    resolution: {integrity: sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=}
+    dev: false
 
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=}
